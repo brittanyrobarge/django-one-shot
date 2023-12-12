@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create TodoList</title>
+</head>
+<body>
+    <main>
+        <div>
+            <h1>Create TodoList</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
