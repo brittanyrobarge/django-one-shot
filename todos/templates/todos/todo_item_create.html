@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create TodoItem</title>
+</head>
+<body>
+    <main>
+        <div>
+            <h1>Create a new item</h1>
+            <form method="post">
+                {% csrf_token %}
+                <label for="task">Task:</label>
+                <input type="text" id="task" name="task"><br><br>
+
+                <label for="due_date">Due Date:</label>
+                <input type="text" id="due_date" name="due_date"><br><br>
+
+                <input type="checkbox" id="is_completed" name="is_completed">
+                <label for="is_completed">Is completed</label><br><br>
+
+                <label for="list">Select List:</label>
+                <select id="list" name="list">
+                </select><br><br>
+
+                <button type="Submit">Create</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

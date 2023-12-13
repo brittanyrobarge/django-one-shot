@@ -7,11 +7,13 @@
     <main>
         <div>
             <h1>{{ todo_list.name }}</h1>
-            <a href="{% url 'todo_list_delete' todo_list.id %}">Delete</a>
+            <ul>
+                <li><a href="{% url 'todo_list_create' %}">Create a new list</a></li>
+                <li><a href="{% url 'todo_list_update' todo_list.id %}">Edit </a></li>
+                <li><a href="{% url 'todo_list_delete' todo_list.id %}">Delete </a></li>
+                <li><a href="{% url 'todo_item_create' %}">Create a new item</a></li>
+            </ul>
             <h2>Tasks</h2>
-            <p>
-                <a href="{% url 'todo_list_update' todo_list.id %}">Update</a>
-            </p>
             <table border="1">
                 <thead>
                     <tr>
