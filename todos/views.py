@@ -34,3 +34,10 @@ def todo_list_update(request, id):
     else:
         form = TodoListForm(instance=todo_list)
     return render(request, 'todos/todo_list_update.html', {'form': form})
+
+def todo_list_delete(request, id):
+    todo_list = get_object_or_404(TodoList, id=id)
+    if request.method == 'POST':
+        todo_list.delete()
+        return redirect('todo_list_list')
+    return render(request, 'todos/todo_list_delete.html')

@@ -7,9 +7,10 @@
     <main>
         <div>
             <h1>{{ todo_list.name }}</h1>
+            <a href="{% url 'todo_list_delete' todo_list.id %}">Delete</a>
             <h2>Tasks</h2>
             <p>
-                <a href="{% url 'todo_list_update' todo_list.id %}">Update this list</a>
+                <a href="{% url 'todo_list_update' todo_list.id %}">Update</a>
             </p>
             <table border="1">
                 <thead>
