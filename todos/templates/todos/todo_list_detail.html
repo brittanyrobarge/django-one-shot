@@ -7,14 +7,14 @@
     <main>
         <div>
             <h1>{{ todo_list.name }}</h1>
-            <ul>
-                <li><a href="{% url 'todo_list_create' %}">Create a new list</a></li>
-                <li><a href="{% url 'todo_list_update' todo_list.id %}">Edit </a></li>
-                <li><a href="{% url 'todo_list_delete' todo_list.id %}">Delete </a></li>
-                <li><a href="{% url 'todo_item_create' %}">Create a new item</a></li>
-            </ul>
+            <p>
+                <a href="{% url 'todo_list_update' todo_list.id %}">Edit </a>
+            </p>
+            <p>
+                <a href="{% url 'todo_list_delete' todo_list.id %}">Delete </a>
+            </p>
             <h2>Tasks</h2>
-            <table border="1">
+            <table>
                 <thead>
                     <tr>
                         <th>Task</th>
@@ -24,7 +24,7 @@
                 <tbody>
                     {% for todo_item in todo_items %}
                         <tr>
-                            <td>{{ todo_item.task }}</td>
+                            <td><a href="{% url 'todo_item_update' id=todo_item.id %}">{{ todo_item.task }}</a></td>
                             <td>{{ todo_item.due_date }}</td>
                         </tr>
                     {% endfor %}

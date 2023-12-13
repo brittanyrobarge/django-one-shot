@@ -7,8 +7,13 @@
     <main>
         <div>
             <h1>My Lists</h1>
-            <a href="{% url 'todo_list_create' %}">Create a New List</a>
-            <table border="1">
+            <p>
+                <a href="{% url 'todo_list_create' %}">Create a New List</a>
+            </p>
+            <p>
+                <a href="{% url 'todo_item_create' %}">Create a new item</a>
+            </p>
+            <table>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -28,6 +33,5 @@
             </table>
         </div>
     </main>
-    <a href="{% url 'todo_item_create' %}">Create a new item</a>
 </body>
 </html>

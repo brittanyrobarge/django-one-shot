@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import TodoList
+from .models import TodoList,TodoItem
 from .forms import TodoListForm, TodoItemForm
 
 # Create your views here.
@@ -48,8 +48,19 @@ def todo_item_create(request):
         if form.is_valid():
             todo_item = form.save(commit=False)
             todo_item.list = TodoList.objects.first()
-            todo_item.save() 
+            todo_item.save()
             return redirect('todo_list_detail', id=todo_item.list.id)
     else:
         form = TodoItemForm()
     return render(request, 'todos/todo_item_create.html', {'form': form})
+
+def todo_item_update(request, id):
+    todo_item = get_object_or_404(TodoItem, id=id)
+    if request.method == 'POST':
+        form = TodoItemForm(request.POST, instance=todo_item)
+        if form.is_valid():
+            form.save()
+            return redirect('todo_list_detail', id=todo_item.list.id)
+    else:
+        form = TodoItemForm(instance=todo_item)
+    return render(request, 'todos/todo_item_update.html', {'form': form})
